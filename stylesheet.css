@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #322e2e;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #d4d0d0;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #423b3b;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.circular--portrait { 
+    position: relative; 
+    width: 150px; 
+    height: 150px; 
+    overflow: hidden; 
+    border-radius: 50%; } 
+
+.circular--portrait img { 
+    width: 100%; 
+    height: auto; }
+
+.quote {
+    font-style: italic;
+    color: #b19f5b;
+}
+
+a.clickable-box {
+    text-decoration: none; /* Remove underline from anchor */
+}
+
+.clickable-box div {
+    border: 3px solid #333; /* Border color and thickness */
+    border-radius: 12px; /* Adjust to control roundness */
+    padding: 40px;
+    background-color: #efeeee; /* Background color */
+    text-align: center; /* Center the text */
+    cursor: pointer; /* Change cursor to indicate clickability */
+    transition: background-color 0.2s ease; /* Smooth transition for background color */
+    font-size: 1.25em; /* Increase font size */
+    color: #333; /* Text color */
+}
+
+a.clickable-box:visited,
+a.clickable-box:active {
+    color: inherit; /* Maintain the color of the text when clicked or visited */
+}
+
+.clickable-box:hover div {
+    background-color: #a19e9e; /* Background color on hover */
+    font-size: 130%;
+    border: 3px solid turquoise;
+}
+
+.showing_objects {
+    text-align: center; /* Optional: center the container */
+    background-color: #a5a5a5;
+    border: 3px solid #333; /* Border color and thickness */
+    border-radius: 12px; /* Adjust to control roundness */
+    padding: 40px;
+}
+
+.showing_objects_paper img {
+    width: 100%; /* Adjust based on your needs */
+    max-width: 250px; /* Optional: set a max width */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Change cursor to indicate clickability */
+    border: 2px solid #ddd; /* Optional: add a border */
+    border-radius: 8px; /* Optional: rounded corners */
+    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+}
+
+.showing_objects_pres img {
+    width: 100%; /* Adjust based on your needs */
+    max-width: 350px; /* Optional: set a max width */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Change cursor to indicate clickability */
+    border: 2px solid #ddd; /* Optional: add a border */
+    border-radius: 8px; /* Optional: rounded corners */
+    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+}
+
+
+.showing_objects img:hover {
+    transform: scale(1.5); /* Zoom effect on hover */
+}
+
+h3 {
+    color: turquoise;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the heading */
+    position: relative; /* Positioning context for absolute positioning of the back button */
+    padding: 0 20px; /* Add padding if needed to avoid edge issues */
+}
+.back-button {
+    position: absolute; /* Take the button out of the flow of flex layout */
+    left: 20px; /* Adjust as needed to position the button on the left */
+    text-decoration: none;
+    color: #007bff; /* Customize color as needed */
+    font-size: 16px; /* Adjust font size as needed */
+    border: 2px solid #a9a5a5; /* Border color and thickness */
+    border-radius: 12px; /* Adjust to control roundness */
+    padding: 10px;
+    background-color: #c9c7c7;
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: turquoise;
+    border: 2px solid turquoise;
+    font-size: 105%;
+}
+
+h4 {
+    color: #71a444;
+}
