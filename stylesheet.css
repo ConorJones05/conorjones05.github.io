@@ -128,4 +128,123 @@ h3 {
 
 h4 {
     color: #71a444;
+}/* Large container with rounded sides */
+.my_classes {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    width: 80%;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for class boxes */
+.class_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center; /* Centers the boxes in the middle */
+}
+
+/* Individual class boxes */
+.individual_class {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    width: calc(33.33% - 100px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.individual_class:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Class name styling */
+.individual_class h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Class attribute tags */
+.class_attributes {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.attribute_tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #333;
+    font-weight: 500;
+}
+
+.attribute_tag i {
+    font-size: 14px;
+}
+
+/* Hidden information that appears on hover */
+.more_info {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e8e8e8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 200%;
+    z-index: 10;
+}
+
+.individual_class:hover .more_info {
+    display: block;
+}
+
+
+.clickable-box_projects div {
+    border: 3px solid #333; /* Border color and thickness */
+    border-radius: 12px; /* Adjust to control roundness */
+    padding: 40px;
+    background-color: #aeaeae; /* Background color */
+    text-align: left; /* Center the text */
+    cursor: pointer; /* Change cursor to indicate clickability */
+    transition: background-color 0.2s ease; /* Smooth transition for background color */
+    font-size: 1.25em; /* Increase font size */
+    color: #333; /* Text color */
+    text-decoration: none;
+}
+
+/* Ensure links do not have underline */
+a.clickable-box_projects {
+    text-decoration: none; /* Remove underline from anchor */
+}
+
+a.clickable-box_projects div {
+    border: 3px solid #333; /* Border color and thickness */
+    border-radius: 12px; /* Adjust to control roundness */
+    padding: 40px;
+    background-color: #aeaeae; /* Background color */
+    text-align: left; /* Align the text to the left */
+    cursor: pointer; /* Change cursor to indicate clickability */
+    transition: background-color 0.2s ease; /* Smooth transition for background color */
+    font-size: 1.25em; /* Increase font size */
+    color: #333; /* Text color */
+    text-decoration: none; /* Ensure no text decoration on div */
+}
+
+/* Ensure visited and active states have the same styling as default */
+a.clickable-box_projects:visited,
+a.clickable-box_projects:active {
+    color: inherit; /* Maintain the color of the text when clicked or visited */
 }
