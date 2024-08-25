@@ -20,80 +20,89 @@ h1 {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.circular--portrait { 
-    position: relative; 
-    width: 150px; 
-    height: 150px; 
-    overflow: hidden; 
-    border-radius: 50%; } 
+.circular--portrait {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+}
 
-.circular--portrait img { 
-    width: 100%; 
-    height: auto; }
+.circular--portrait img {
+    width: 100%;
+    height: auto;
+}
 
 .quote {
     font-style: italic;
-    color: #b19f5b;
+    color: turquoise;
 }
 
 a.clickable-box {
-    text-decoration: none; /* Remove underline from anchor */
+    text-decoration: none;
 }
 
 .clickable-box div {
-    border: 3px solid #333; /* Border color and thickness */
-    border-radius: 12px; /* Adjust to control roundness */
+    border: 3px solid #333;
+    border-radius: 12px;
     padding: 40px;
-    background-color: #efeeee; /* Background color */
-    text-align: center; /* Center the text */
-    cursor: pointer; /* Change cursor to indicate clickability */
-    transition: background-color 0.2s ease; /* Smooth transition for background color */
-    font-size: 1.25em; /* Increase font size */
-    color: #333; /* Text color */
+    background-color: #efeeee;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 1.25em;
+    color: #333;
 }
 
 a.clickable-box:visited,
 a.clickable-box:active {
-    color: inherit; /* Maintain the color of the text when clicked or visited */
+    color: inherit;
 }
 
+/* General styling for the project boxes */
+.clickable-box div {
+    border: 3px solid #333;
+    border-radius: 12px;
+    padding: px;
+    background-color: #efeeee;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth scaling and background transition */
+    font-size: 1.25em;
+    color: #333;
+    transform-origin: center; /* Ensures scaling happens from the center */
+}
+
+/* Hover effect for the project boxes */
 .clickable-box:hover div {
-    background-color: #a19e9e; /* Background color on hover */
-    font-size: 130%;
+    background-color: #a19e9e;
+    transform: scale(1.01); /* Scale both the box and the text */
     border: 3px solid turquoise;
 }
 
+/* Responsive design adjustments remain unchanged */
+
 .showing_objects {
-    text-align: center; /* Optional: center the container */
+    text-align: center;
     background-color: #a5a5a5;
-    border: 3px solid #333; /* Border color and thickness */
-    border-radius: 12px; /* Adjust to control roundness */
+    border: 3px solid #333;
+    border-radius: 12px;
     padding: 40px;
 }
 
-.showing_objects_paper img {
-    width: 100%; /* Adjust based on your needs */
-    max-width: 250px; /* Optional: set a max width */
-    height: auto; /* Maintain aspect ratio */
-    cursor: pointer; /* Change cursor to indicate clickability */
-    border: 2px solid #ddd; /* Optional: add a border */
-    border-radius: 8px; /* Optional: rounded corners */
-    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
-}
-
+.showing_objects_paper img,
 .showing_objects_pres img {
-    width: 100%; /* Adjust based on your needs */
-    max-width: 350px; /* Optional: set a max width */
-    height: auto; /* Maintain aspect ratio */
-    cursor: pointer; /* Change cursor to indicate clickability */
-    border: 2px solid #ddd; /* Optional: add a border */
-    border-radius: 8px; /* Optional: rounded corners */
-    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
-
 
 .showing_objects img:hover {
-    transform: scale(1.5); /* Zoom effect on hover */
+    transform: scale(1.5);
 }
 
 h3 {
@@ -103,21 +112,33 @@ h3 {
 .top {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the heading */
-    position: relative; /* Positioning context for absolute positioning of the back button */
-    padding: 0 20px; /* Add padding if needed to avoid edge issues */
+    justify-content: center;
+    position: relative;
+    padding: 0 20px;
 }
+
+/* Ensure the parent div has position: relative */
+.parent-div { 
+    position: relative;
+}
+
+.header-container {
+    position: relative; /* Establishes a positioning context for the back button */
+    padding-top: 40px; /* Adds top padding to make space for the back button */
+}
+
 .back-button {
-    position: absolute; /* Take the button out of the flow of flex layout */
-    left: 20px; /* Adjust as needed to position the button on the left */
+    position: absolute; /* Position relative to the header-container */
+    top: 0px; /* Distance from the top of the container */
+    left: 0px; /* Distance from the left of the container */
     text-decoration: none;
-    color: #007bff; /* Customize color as needed */
-    font-size: 16px; /* Adjust font size as needed */
-    border: 2px solid #a9a5a5; /* Border color and thickness */
-    border-radius: 12px; /* Adjust to control roundness */
-    padding: 10px;
+    color: #007bff;
+    font-size: 14px;
+    border: 2px solid #a9a5a5;
+    border-radius: 12px;
+    padding: 10px 15px;
     background-color: #c9c7c7;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, border 0.3s ease;
 }
 
 .back-button:hover {
@@ -128,7 +149,8 @@ h3 {
 
 h4 {
     color: #71a444;
-}/* Large container with rounded sides */
+}
+
 .my_classes {
     padding: 20px;
     border-radius: 15px;
@@ -138,15 +160,13 @@ h4 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Container for class boxes */
 .class_container {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: center; /* Centers the boxes in the middle */
+    justify-content: center;
 }
 
-/* Individual class boxes */
 .individual_class {
     padding: 10px;
     border-radius: 10px;
@@ -158,10 +178,10 @@ h4 {
 }
 
 .individual_class:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border: 3px solid turquoise; /* Add this line */
 }
 
-/* Class name styling */
 .individual_class h4 {
     margin: 0;
     font-size: 16px;
@@ -169,7 +189,6 @@ h4 {
     color: #333;
 }
 
-/* Class attribute tags */
 .class_attributes {
     margin-top: 8px;
     display: flex;
@@ -193,7 +212,6 @@ h4 {
     font-size: 14px;
 }
 
-/* Hidden information that appears on hover */
 .more_info {
     display: none;
     position: absolute;
@@ -211,40 +229,276 @@ h4 {
     display: block;
 }
 
-
-.clickable-box_projects div {
-    border: 3px solid #333; /* Border color and thickness */
-    border-radius: 12px; /* Adjust to control roundness */
-    padding: 40px;
-    background-color: #aeaeae; /* Background color */
-    text-align: left; /* Center the text */
-    cursor: pointer; /* Change cursor to indicate clickability */
-    transition: background-color 0.2s ease; /* Smooth transition for background color */
-    font-size: 1.25em; /* Increase font size */
-    color: #333; /* Text color */
+a.clickable-box_projects {
     text-decoration: none;
+    display: block; /* Ensure the clickable area covers the entire box */
+    border: 3px solid #333;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #aeaeae;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s ease; /* Smooth border color transition */
+    font-size: 1.25em;
+    color: #333;
 }
 
-/* Ensure links do not have underline */
-a.clickable-box_projects {
-    text-decoration: none; /* Remove underline from anchor */
+a.clickable-box_projects:hover {
+    border-color: turquoise; /* Change border color on hover */
 }
 
 a.clickable-box_projects div {
-    border: 3px solid #333; /* Border color and thickness */
-    border-radius: 12px; /* Adjust to control roundness */
-    padding: 40px;
-    background-color: #aeaeae; /* Background color */
-    text-align: left; /* Align the text to the left */
-    cursor: pointer; /* Change cursor to indicate clickability */
-    transition: background-color 0.2s ease; /* Smooth transition for background color */
-    font-size: 1.25em; /* Increase font size */
-    color: #333; /* Text color */
-    text-decoration: none; /* Ensure no text decoration on div */
+    background-color: #aeaeae; /* Ensure inner box color stays the same */
+    color: #333; /* Ensure text color remains unchanged */
+    transition: background-color 0.2s ease; /* Optional: Smooth background color transition */
 }
 
-/* Ensure visited and active states have the same styling as default */
-a.clickable-box_projects:visited,
-a.clickable-box_projects:active {
-    color: inherit; /* Maintain the color of the text when clicked or visited */
+/* Ensure that inner content does not change color on hover */
+a.clickable-box_projects:hover div {
+    background-color: #aeaeae; /* Keep the inner box color the same */
+    color: #333; /* Ensure text color remains unchanged */
+}
+
+.project-title,
+.tech-stack {
+    color: #333; /* Default text color */
+    transition: color 0.2s ease; /* Smooth color transition */
+}
+
+.tech-stack i:hover {
+    color: #007bff; /* Change icon color on hover */
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+/* Ensure text color does not change on hover */
+a.clickable-box_projects:hover .project-title,
+a.clickable-box_projects:hover .tech-stack {
+    color: #333; /* Keep the text color unchanged */
+}
+
+/* Ensure the .work element has relative positioning */
+.work {
+    display: block;
+    position: relative; /* Add this line */
+    border: 3px solid #333;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #aeaeae;
+    text-align: left;
+    transition: border-color 0.2s ease;
+    font-size: 1.25em;
+    color: #333;
+}
+
+/* Change border color on hover */
+.work:hover {
+    border-color: turquoise;
+}
+
+/* Initially hide the popup content */
+.popup-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position below the .work element */
+    left: 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e8e8e8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 125%;
+    z-index: 10;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Title styling */
+.popup-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Date styling */
+.popup-date {
+    font-style: italic;
+    text-align: right;
+    position: absolute; /* Positioning it at the top-right */
+    right: 0;
+    top: 0;
+    width: 100%; /* Make sure it stretches the full width of the parent */
+    box-sizing: border-box; /* Include padding in width calculation */
+    padding: 0 10px; /* Add some padding if needed */
+}
+
+/* Content section styling */
+.popup-body {
+    font-size: 1em;
+}
+
+/* Show the popup content on hover */
+.work:hover .popup-content {
+    display: block;
+}
+
+/* Align images to the right within the .work element */
+.work img {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    max-width: 100%; /* Ensure the image fits within its container */
+    height: auto; /* Maintain aspect ratio */
+    width: 150px; /* Set a fixed width for the image */
+}
+.header-with-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icons a {
+    font-size: 1.75rem;
+    text-decoration: none;
+    color: #000; /* Default color for all icons */
+}
+
+/* Hover effects for each icon with specific colors */
+.linkedin-icon:hover i {
+    color: #0077b5; /* LinkedIn blue */
+}
+
+.github-icon:hover i {
+    color: #ffffff; /* White for GitHub */
+}
+
+.resume-icon:hover i {
+    color: #28a745; /* Green for the résumé */
+}
+
+/* Optional: Hover effects for all icons */
+.icons a:hover {
+    opacity: 0.8;
+}
+
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .clickable-box div, .clickable-box_projects div {
+        padding: 20px;
+        font-size: 1em;
+    }
+
+    .my_classes {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .individual_class {
+        width: 100%;
+    }
+
+    .back-button {
+        font-size: 8px;
+        padding: 8px 16px;
+        left: 0px; /* Adjust positioning for smaller screens */
+        top: 0px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container, .my_classes {
+        padding: 5px;
+    }
+
+    .clickable-box div, .clickable-box_projects div {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .individual_class {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .back-button {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .circular--portrait {
+        width: 100px;
+        height: 100px;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .popup-content {
+        width: 100%; /* Make the popup fit within the screen width on small devices */
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Popup header styling */
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Allow the header content to wrap on smaller screens */
+}
+
+/* Title styling */
+.popup-title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Date styling */
+.popup-date {
+    font-style: italic;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+/* Content section styling */
+.popup-body {
+    font-size: 1em;
+}
+
+/* Show the popup content on hover */
+.work:hover .popup-content {
+    display: block;
+}
+
+/* Align images to the right within the .work element */
+.work img {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    max-width: 100%; /* Ensure the image fits within its container */
+    height: auto;
+    width: 150px;
+}
+
+/* Responsive image adjustments */
+@media (max-width: 600px) {
+    .work img {
+        width: 100px; /* Scale down image size on smaller screens */
+    }
 }
