@@ -26,11 +26,16 @@ h1 {
     height: 150px;
     overflow: hidden;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center content vertically */
+    margin-right: 15px; /* Adjust margin for spacing */
 }
 
 .circular--portrait img {
-    width: 100%;
-    height: auto;
+    width: auto; /* Ensure the image fits within the circle */
+    height: 100%; /* Ensure the image fills the circle vertically */
+    object-fit: cover; /* Maintain aspect ratio and cover the circle */
 }
 
 .quote {
@@ -127,25 +132,61 @@ h3 {
     padding-top: 40px; /* Adds top padding to make space for the back button */
 }
 
+/* CSS */
 .back-button {
-    position: absolute; /* Position relative to the header-container */
-    top: 0px; /* Distance from the top of the container */
-    left: 0px; /* Distance from the left of the container */
-    text-decoration: none;
-    color: #007bff;
-    font-size: 14px;
-    border: 2px solid #a9a5a5;
-    border-radius: 12px;
-    padding: 10px 15px;
-    background-color: #c9c7c7;
-    transition: transform 0.3s ease, background-color 0.3s ease, border 0.3s ease;
-}
-
-.back-button:hover {
+    appearance: button;
+    background-color: rgb(26, 107, 99);
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: din-round,sans-serif;
+    font-size: 12px; /* Make the button smaller */
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 16px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 8px 12px; /* Adjust padding for a smaller button */
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none; /* Remove underline */
+    position: absolute; /* Keep in the left corner */
+    left: 0; /* Align with left edge */
+    top: 0; /* Align with top edge */
+  }
+  
+  .back-button:after {
+    background-clip: padding-box;
     background-color: turquoise;
-    border: 2px solid turquoise;
-    font-size: 105%;
-}
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  .back-button:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+  
 
 h4 {
     color: #71a444;
