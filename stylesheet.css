@@ -1,20 +1,20 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #322e2e;
+    background-color: #1E201E;
     margin: 0;
     padding: 20px;
     text-align: center;
 }
 
 h1 {
-    color: #d4d0d0;
+    color: #ECDFCC;
     margin: 0;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #423b3b;
+    background-color: #3C3D37;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -40,7 +40,7 @@ h1 {
 
 .quote {
     font-style: italic;
-    color: turquoise;
+    color: rgb(86, 172, 85);
 }
 
 a.clickable-box {
@@ -51,7 +51,7 @@ a.clickable-box {
     border: 3px solid #333;
     border-radius: 12px;
     padding: 40px;
-    background-color: #efeeee;
+    background-color: #697565;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -69,7 +69,7 @@ a.clickable-box:active {
     border: 3px solid #333;
     border-radius: 12px;
     padding: px;
-    background-color: #efeeee;
+    background-color: #697565;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth scaling and background transition */
@@ -80,9 +80,9 @@ a.clickable-box:active {
 
 /* Hover effect for the project boxes */
 .clickable-box:hover div {
-    background-color: #a19e9e;
+    background-color: #ECDFCC;
     transform: scale(1.01); /* Scale both the box and the text */
-    border: 3px solid turquoise;
+    border: 3px solid rgb(86, 172, 85);
 }
 
 /* Responsive design adjustments remain unchanged */
@@ -111,7 +111,7 @@ a.clickable-box:active {
 }
 
 h3 {
-    color: turquoise;
+    color: rgb(86, 172, 85);
 }
 
 .top {
@@ -135,7 +135,7 @@ h3 {
 /* CSS */
 .back-button {
     appearance: button;
-    background-color: rgb(26, 107, 99);
+    background-color: rgb(44, 90, 38);
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -169,7 +169,7 @@ h3 {
   
   .back-button:after {
     background-clip: padding-box;
-    background-color: turquoise;
+    background-color: rgb(86, 172, 85);
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -195,7 +195,7 @@ h4 {
 .my_classes {
     padding: 20px;
     border-radius: 15px;
-    background-color: #f0f0f0;
+    background-color: #697565;
     width: 80%;
     margin: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -211,7 +211,7 @@ h4 {
 .individual_class {
     padding: 10px;
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: #ECDFCC;
     width: calc(33.33% - 100px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -220,7 +220,7 @@ h4 {
 
 .individual_class:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    border: 3px solid turquoise; /* Add this line */
+    border: 3px solid rgb(86, 172, 85); /* Add this line */
 }
 
 .individual_class h4 {
@@ -242,7 +242,7 @@ h4 {
     align-items: center;
     gap: 4px;
     padding: 4px 8px;
-    background-color: #e0e0e0;
+    background-color: #9ae7a4;
     border-radius: 15px;
     font-size: 12px;
     color: #333;
@@ -285,7 +285,7 @@ a.clickable-box_projects {
 }
 
 a.clickable-box_projects:hover {
-    border-color: turquoise; /* Change border color on hover */
+    border-color: rgb(86, 172, 85); /* Change border color on hover */
 }
 
 a.clickable-box_projects div {
@@ -307,7 +307,7 @@ a.clickable-box_projects:hover div {
 }
 
 .tech-stack i:hover {
-    color: #007bff; /* Change icon color on hover */
+    color: rgb(86, 172, 85); /* Change icon color on hover */
     transform: scale(1.1); /* Slightly enlarge icon on hover */
 }
 /* Ensure text color does not change on hover */
@@ -323,7 +323,7 @@ a.clickable-box_projects:hover .tech-stack {
     border: 3px solid #333;
     border-radius: 12px;
     padding: 10px;
-    background-color: #aeaeae;
+    background-color: #ECDFCC;
     text-align: left;
     transition: border-color 0.2s ease;
     font-size: 1.25em;
@@ -332,7 +332,7 @@ a.clickable-box_projects:hover .tech-stack {
 
 /* Change border color on hover */
 .work:hover {
-    border-color: turquoise;
+    border-color: rgb(86, 172, 85);
 }
 
 /* Initially hide the popup content */
