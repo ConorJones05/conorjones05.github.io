@@ -1,23 +1,49 @@
+/* Define default variables for dark mode */
+:root {
+    --background-color: #121212; /* Darker background for better contrast */
+    --container-bg-color: #1E1E1E; /* Softer container background */
+    --text-color: #E0E0E0; /* Slightly lighter text for readability */
+    --link-color: #4CAF50; /* Bright green links for a modern look */
+    --box-bg-color: #333333; /* Darker box background */
+    --box-hover-bg-color: #4B4B4B; /* Softer hover color */
+    --border-color: #444; /* Softer border color */
+    --hover-border-color: #4CAF50; /* Green border on hover for consistency */
+}
+
+/* Light mode variables */
+.light-mode {
+    --background-color: #FFFFFF;
+    --container-bg-color: #f0f0f0;
+    --text-color: #333;
+    --link-color: #0077b5;
+    --box-bg-color: #e0e0e0;
+    --box-hover-bg-color: #d0d0d0;
+    --border-color: #ccc;
+    --hover-border-color: #0077b5;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #1E201E;
+    background-color: var(--background-color);
     margin: 0;
     padding: 20px;
     text-align: center;
+    color: var(--text-color);
 }
 
 h1 {
-    color: #ECDFCC;
+    color: var(--text-color);
     margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for emphasis */
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #3C3D37;
+    background-color: var(--container-bg-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
 }
 
 .circular--portrait {
@@ -28,182 +54,102 @@ h1 {
     border-radius: 50%;
     display: flex;
     justify-content: center;
-    align-items: center; /* Center content vertically */
-    margin-right: 15px; /* Adjust margin for spacing */
+    align-items: center;
+    margin-right: 15px;
+    border: 2px solid var(--border-color); /* Adds a border for styling */
 }
 
 .circular--portrait img {
-    width: auto; /* Ensure the image fits within the circle */
-    height: 100%; /* Ensure the image fills the circle vertically */
-    object-fit: cover; /* Maintain aspect ratio and cover the circle */
+    width: auto;
+    height: 100%;
+    object-fit: cover;
 }
 
 .quote {
     font-style: italic;
-    color: rgb(86, 172, 85);
+    color: var(--link-color);
+    margin-bottom: 20px; /* Spacing for better readability */
 }
 
 a.clickable-box {
     text-decoration: none;
 }
 
+
 .clickable-box div {
-    border: 3px solid #333;
+    border: 3px solid var(--border-color);
     border-radius: 12px;
-    padding: 40px;
-    background-color: #697565;
+    padding: 10px;
+    background-color: var(--box-bg-color);
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
     font-size: 1.25em;
-    color: #333;
+    color: var(--text-color); /* Ensures text color is consistent */
 }
 
-a.clickable-box:visited,
-a.clickable-box:active {
-    color: inherit;
-}
-
-/* General styling for the project boxes */
-.clickable-box div {
-    border: 3px solid #333;
-    border-radius: 12px;
-    padding: px;
-    background-color: #697565;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth scaling and background transition */
-    font-size: 1.25em;
-    color: #333;
-    transform-origin: center; /* Ensures scaling happens from the center */
-}
-
-/* Hover effect for the project boxes */
 .clickable-box:hover div {
-    background-color: #ECDFCC;
-    transform: scale(1.01); /* Scale both the box and the text */
-    border: 3px solid rgb(86, 172, 85);
-}
-
-/* Responsive design adjustments remain unchanged */
-
-.showing_objects {
-    text-align: center;
-    background-color: #a5a5a5;
-    border: 3px solid #333;
-    border-radius: 12px;
-    padding: 40px;
+    background-color: var(--box-hover-bg-color);
+    transform: scale(1.03); /* Slightly increased scale on hover for effect */
+    border-color: var(--hover-border-color);
 }
 
 .showing_objects_paper img,
 .showing_objects_pres img {
-    width: 100%;
-    max-width: 250px;
+    width: 250px; /* Set the initial small size */
     height: auto;
-    cursor: pointer;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border 0.3s ease; /* Smooth transition for hover effect */
+    border: 2px solid var(--border-color); /* Use the border color variable */
 }
 
-.showing_objects img:hover {
-    transform: scale(1.5);
+.showing_objects_paper img:hover,
+.showing_objects_pres img:hover {
+    transform: scale(1.1); /* Enlarge slightly on hover */
+    border: 2px solid var(--hover-border-color); /* Use the hover border color variable */
 }
 
-h3 {
-    color: rgb(86, 172, 85);
+h3, h4 {
+    color: var(--link-color);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Add depth to headings */
 }
 
-.top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 0 20px;
-}
-
-/* Ensure the parent div has position: relative */
-.parent-div { 
-    position: relative;
-}
-
-.header-container {
-    position: relative; /* Establishes a positioning context for the back button */
-    padding-top: 40px; /* Adds top padding to make space for the back button */
-}
-
-/* CSS */
 .back-button {
-    appearance: button;
-    background-color: rgb(44, 90, 38);
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
+    position: absolute; /* Absolute position inside the container */
+    top: 30px; /* Vertical position */
+    left: 225px; /* Horizontal position */
+    width: 60px;
+    height: 30px; /* Adjust height for the pill shape */
+    background-color: #ccc;
+    border-radius: 20px; /* Maintain the pill shape */
+    border: none;
     cursor: pointer;
-    display: inline-block;
-    font-family: din-round,sans-serif;
-    font-size: 12px; /* Make the button smaller */
-    font-weight: 700;
-    letter-spacing: .8px;
-    line-height: 16px;
-    margin: 0;
-    outline: none;
-    overflow: visible;
-    padding: 8px 12px; /* Adjust padding for a smaller button */
-    text-align: center;
-    text-transform: uppercase;
-    touch-action: manipulation;
-    transform: translateZ(0);
-    transition: filter .2s;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    text-decoration: none; /* Remove underline */
-    position: absolute; /* Keep in the left corner */
-    left: 0; /* Align with left edge */
-    top: 0; /* Align with top edge */
-  }
-  
-  .back-button:after {
-    background-clip: padding-box;
-    background-color: rgb(86, 172, 85);
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    bottom: -4px;
-    content: "";
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-  }
-  
-  .back-button:hover:not(:disabled) {
-    filter: brightness(1.1);
-    -webkit-filter: brightness(1.1);
-  }
-  
+    transition: background-color 0.3s ease;
+    z-index: 1000; /* Ensures it's above other content */
+    outline: var(--border-color); /* Default outline */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the icon */
+}
 
-h4 {
-    color: #71a444;
+.back-button i {
+    font-size: 20px; /* Adjust the size of the icon */
+    color: var(--text-color);
 }
 
 .my_classes {
     padding: 20px;
     border-radius: 15px;
-    background-color: #697565;
+    background-color: #f0f0f0;
     width: 80%;
     margin: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--container-bg-color);
 }
 
 .class_container {
     display: flex;
     flex-wrap: wrap;
+    background-color: var(--container-bg-color);
     gap: 15px;
     justify-content: center;
 }
@@ -211,23 +157,24 @@ h4 {
 .individual_class {
     padding: 10px;
     border-radius: 10px;
-    background-color: #ECDFCC;
+    background-color: #ffffff;
     width: calc(33.33% - 100px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: box-shadow 0.3s ease;
+    background-color: var(--box-bg-color);
 }
 
 .individual_class:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    border: 3px solid rgb(86, 172, 85); /* Add this line */
+    border: 3px solid var(--hover-border-color); /* Add this line */
 }
 
 .individual_class h4 {
     margin: 0;
     font-size: 16px;
     font-weight: 600;
-    color: #333;
+    color: var(--text-color);
 }
 
 .class_attributes {
@@ -235,22 +182,7 @@ h4 {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-}
-
-.attribute_tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 4px 8px;
-    background-color: #9ae7a4;
-    border-radius: 15px;
-    font-size: 12px;
-    color: #333;
-    font-weight: 500;
-}
-
-.attribute_tag i {
-    font-size: 14px;
+    color: var(--text-color);
 }
 
 .more_info {
@@ -260,60 +192,122 @@ h4 {
     left: 0;
     padding: 10px;
     border-radius: 8px;
-    background-color: #e8e8e8;
+    background-color: var(--box-hover-bg-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 200%;
     z-index: 10;
+    color: var(--text-color);
 }
 
 .individual_class:hover .more_info {
     display: block;
 }
 
-a.clickable-box_projects {
+.icons a {
+    font-size: 1.75rem;
     text-decoration: none;
-    display: block; /* Ensure the clickable area covers the entire box */
-    border: 3px solid #333;
-    border-radius: 12px;
+    color: var(--text-color);
+    transition: color 0.2s ease;
+}
+
+.linkedin-icon:hover i {
+    color: #0e76a8; /* LinkedIn blue */
+}
+
+.github-icon:hover i {
+    color: #ffffff; /* GitHub white */
+}
+
+.resume-icon:hover i {
+    color: #4CAF50; /* Consistent with link color */
+}
+
+/* Popup content */
+.popup-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
     padding: 10px;
-    background-color: #aeaeae;
-    text-align: left;
+    border-radius: 8px;
+    background-color: var(--container-bg-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 125%;
+    z-index: 10;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.popup-title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.popup-date {
+    font-style: italic;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.popup-body {
+    font-size: 1em;
+}
+
+.work:hover .popup-content {
+    display: block;
+}
+
+/* Icon hover effects */
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icons a {
+    font-size: 1.75rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.linkedin-icon:hover i {
+    color: #0077b5;
+}
+
+.github-icon:hover i {
+    color: #ffffff;
+}
+
+.resume-icon:hover i {
+    color: #28a745;
+}
+
+.toggle-btn {
+    position: absolute; /* Absolute position inside the container */
+    top: 30px; /* Vertical position */
+    right: 225px; /* Horizontal position */
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    border: none;
     cursor: pointer;
-    transition: border-color 0.2s ease; /* Smooth border color transition */
-    font-size: 1.25em;
-    color: #333;
+    transition: background-color 0.3s ease;
+    z-index: 1000; /* Ensures it's above other content */
+    outline: var(--border-color); /* Default outline */
 }
 
-a.clickable-box_projects:hover {
-    border-color: rgb(86, 172, 85); /* Change border color on hover */
-}
-
-a.clickable-box_projects div {
-    background-color: #aeaeae; /* Ensure inner box color stays the same */
-    color: #333; /* Ensure text color remains unchanged */
-    transition: background-color 0.2s ease; /* Optional: Smooth background color transition */
-}
-
-/* Ensure that inner content does not change color on hover */
-a.clickable-box_projects:hover div {
-    background-color: #aeaeae; /* Keep the inner box color the same */
-    color: #333; /* Ensure text color remains unchanged */
-}
-
-.project-title,
-.tech-stack {
-    color: #333; /* Default text color */
-    transition: color 0.2s ease; /* Smooth color transition */
-}
-
-.tech-stack i:hover {
-    color: rgb(86, 172, 85); /* Change icon color on hover */
-    transform: scale(1.1); /* Slightly enlarge icon on hover */
-}
-/* Ensure text color does not change on hover */
-a.clickable-box_projects:hover .project-title,
-a.clickable-box_projects:hover .tech-stack {
-    color: #333; /* Keep the text color unchanged */
+/* Hover state */
+.toggle-btn:hover {
+    outline: var(--hover-border-color); /* Outline changes on hover */
 }
 
 /* Ensure the .work element has relative positioning */
@@ -323,113 +317,34 @@ a.clickable-box_projects:hover .tech-stack {
     border: 3px solid #333;
     border-radius: 12px;
     padding: 10px;
-    background-color: #ECDFCC;
+    background-color: var(--box-bg-color);
     text-align: left;
     transition: border-color 0.2s ease;
     font-size: 1.25em;
-    color: #333;
+    color: var(--text-color);
 }
 
 /* Change border color on hover */
 .work:hover {
-    border-color: rgb(86, 172, 85);
+    border-color: var(--hover-border-color);
 }
 
-/* Initially hide the popup content */
-.popup-content {
-    display: none;
-    position: absolute;
-    top: 100%; /* Position below the .work element */
-    left: 0;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #e8e8e8;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 125%;
-    z-index: 10;
-}
-
-.popup-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-/* Title styling */
-.popup-title {
-    font-weight: bold;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-/* Date styling */
-.popup-date {
-    font-style: italic;
-    text-align: right;
-    position: absolute; /* Positioning it at the top-right */
-    right: 0;
-    top: 0;
-    width: 100%; /* Make sure it stretches the full width of the parent */
-    box-sizing: border-box; /* Include padding in width calculation */
-    padding: 0 10px; /* Add some padding if needed */
-}
-
-/* Content section styling */
-.popup-body {
-    font-size: 1em;
-}
-
-/* Show the popup content on hover */
-.work:hover .popup-content {
-    display: block;
-}
-
-/* Align images to the right within the .work element */
-.work img {
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-    max-width: 100%; /* Ensure the image fits within its container */
+.work-image{
+    width: 150px; /* Adjust the width to make it smaller */
     height: auto; /* Maintain aspect ratio */
-    width: 150px; /* Set a fixed width for the image */
-}
-.header-with-icons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    float: right; /* Align it to the right side */
+    margin-left: 15px; /* Add some space between the image and the content */
+    border-radius: 8px; /* Optional: rounded corners */
+    margin-top: -80px;
 }
 
-.icons {
-    display: flex;
-    gap: 15px;
+.clickable-box:hover {
+    background-color: var(--box-hover-bg-color);
+    transform: scale(1.03);
+    border-color: var(--hover-border-color);
 }
 
-.icons a {
-    font-size: 1.75rem;
-    text-decoration: none;
-    color: #000; /* Default color for all icons */
-}
-
-/* Hover effects for each icon with specific colors */
-.linkedin-icon:hover i {
-    color: #0077b5; /* LinkedIn blue */
-}
-
-.github-icon:hover i {
-    color: #ffffff; /* White for GitHub */
-}
-
-.resume-icon:hover i {
-    color: #28a745; /* Green for the résumé */
-}
-
-/* Optional: Hover effects for all icons */
-.icons a:hover {
-    opacity: 0.8;
-}
-
-
-/* Responsive design adjustments */
+/* Responsive design */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -452,8 +367,17 @@ a.clickable-box_projects:hover .tech-stack {
     .back-button {
         font-size: 8px;
         padding: 8px 16px;
-        left: 0px; /* Adjust positioning for smaller screens */
-        top: 0px;
+    }
+}
+
+@media (max-width: 600px) {
+    .popup-content {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .work img {
+        width: 100px;
     }
 }
 
@@ -480,66 +404,5 @@ a.clickable-box_projects:hover .tech-stack {
     .circular--portrait {
         width: 100px;
         height: 100px;
-    }
-    
-}
-
-@media (max-width: 600px) {
-    .popup-content {
-        width: 100%; /* Make the popup fit within the screen width on small devices */
-        padding: 5px; /* Adjust padding for smaller screens */
-    }
-}
-
-/* Popup header styling */
-.popup-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    flex-wrap: wrap; /* Allow the header content to wrap on smaller screens */
-}
-
-/* Title styling */
-.popup-title {
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-/* Date styling */
-.popup-date {
-    font-style: italic;
-    text-align: right;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 10px;
-}
-
-/* Content section styling */
-.popup-body {
-    font-size: 1em;
-}
-
-/* Show the popup content on hover */
-.work:hover .popup-content {
-    display: block;
-}
-
-/* Align images to the right within the .work element */
-.work img {
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-    max-width: 100%; /* Ensure the image fits within its container */
-    height: auto;
-    width: 150px;
-}
-
-/* Responsive image adjustments */
-@media (max-width: 600px) {
-    .work img {
-        width: 100px; /* Scale down image size on smaller screens */
     }
 }

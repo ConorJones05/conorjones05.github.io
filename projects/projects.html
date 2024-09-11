@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conor Jones Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="../../stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="../images/icon.png" type="image/png">
 </head>
@@ -13,17 +13,20 @@
 <body>
     <div class="container">
         <div class="top">
-            <a href="../" class="back-button">Home</a>
+            <a href="../" class="back-button"><i class="fas fa-home"></i></a>
             <h1>Projects</h1>
+            <!-- Light/Dark Mode Toggle Button -->
+            <button id="theme-toggle" class="toggle-btn"><i class="fa-solid fa-moon"></i></button>
         </div>
-    
+
         <h3>
             Working on personal coding projects is crucial as it helps build practical skills, 
             fosters creativity, and provides hands-on experience that enhances problem-solving 
-            abilities and deepens understanding of programming concepts that otherwise would got unexplored.
+            abilities and deepens understanding of programming concepts that otherwise would go unexplored.
         </h3>
-    
-        <div class="projects-container">
+
+        <!-- Grid container for projects -->
+        <div class="grid-container">
             <a href="https://github.com/ConorJones05/CSV_ToGoogleCalendar" class="clickable-box" target="_blank">
                 <div class="box-content">
                     <div class="project-title">CSV File to Google Calendar</div>
@@ -34,7 +37,7 @@
                     </div>
                 </div>
             </a>
-            
+
             <a href="https://github.com/ConorJones05/UNC_Opportunities" class="clickable-box" target="_blank">
                 <div class="box-content">
                     <div class="project-title">UNC Opportunities Board Email Sender</div>
@@ -48,7 +51,7 @@
                     </div>
                 </div>
             </a>
-    
+
             <a href="https://github.com/ConorJones05/BattleshipAI" class="clickable-box" target="_blank">
                 <div class="box-content">
                     <div class="project-title" style="color: red;">In Progress: Battleship Game and AI Strategy</div>
@@ -62,7 +65,7 @@
                     </div>
                 </div>
             </a>
-    
+
             <a href="https://github.com/ConorJones05/Vertuvisor" class="clickable-box" target="_blank">
                 <div class="box-content">
                     <div class="project-title" style="color: red;">In Progress: Vertuvisor</div>
@@ -75,14 +78,14 @@
                     </div>
                 </div>
             </a>
-    
+
             <a href="https://github.com/ConorJones05/UNC_Menu" class="clickable-box" target="_blank">
                 <div class="box-content">
                     <div class="project-title" style="color: red;">In Progress: UNC Menu Comparison</div>
                     <div class="tech-stack">To be determined</div>
                 </div>
             </a>
-    
+
             <a href="classes/class.html" class="clickable-box">
                 <div class="box-content">
                     <div class="project-title" style="color: red;">In Progress: Card Seller</div>
@@ -91,6 +94,39 @@
             </a>
         </div>
     </div>
+
+    <!-- JavaScript for Light/Dark Mode Toggle -->
+    <script>
+        // Select the theme toggle button
+        const themeToggleButton = document.getElementById('theme-toggle');
+
+        // Function to set the theme by adding or removing the light-mode class
+        function setTheme(theme) {
+            if (theme === 'dark-mode') {
+                document.body.classList.remove('light-mode'); // Apply dark mode
+            } else {
+                document.body.classList.add('light-mode'); // Apply light mode
+            }
+            localStorage.setItem('theme', theme); // Save the selected theme to local storage
+        }
+
+        // Function to toggle between light and dark mode
+        function toggleTheme() {
+            // Check current theme
+            if (document.body.classList.contains('light-mode')) {
+                setTheme('dark-mode');
+            } else {
+                setTheme('light-mode');
+            }
+        }
+
+        // Add an event listener to the button to toggle the theme on click
+        themeToggleButton.addEventListener('click', toggleTheme);
+
+        // Load the theme from local storage or default to system preference
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark-mode' : 'light-mode');
+        setTheme(savedTheme); // Apply the saved or preferred theme on page load
+    </script>
 </body>
 
 </html>

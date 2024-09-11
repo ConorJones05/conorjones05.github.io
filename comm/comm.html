@@ -6,51 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conor Jones Portfolio</title>
     <link rel="stylesheet" type="text/css" href="../../stylesheet.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="/images/icon.png" type="image/png">
 </head>
 
 <body>
     <div class="container">
         <div class="top">
-            <a href="../" class="back-button">Home</a>
+            <a href="../" class="back-button"><i class="fas fa-home"></i></a>
             <h1>Communication</h1>
+            <button id="theme-toggle" class="toggle-btn"><i class="fa-solid fa-moon"></i></button>
         </div>
 
         <h3>
             One of the most important parts in Data Science 
             and in the workplace overall is the ability to 
-            communicate and present ones ideas
+            communicate and present one's ideas.
         </h3>
         <h4>
             Below is a collection of papers and presentations throughout 
             my Undergraduate career covering the classes POLI 130, POLI 281 
             and also including presentations presented at the Fall and Spring 
             Career services Competitions worked on within a team or entirely by myself.
-
         </h4>
 
         <div class="showing_objects_paper">
             <a href="paper/Conditionalities_and_Consequences.pdf" target="_blank">
-                <img src="\images\conditions.png" alt="PDF Thumbnail">
+                <img src="/images/conditions.png" alt="PDF Thumbnail">
             </a>
             <a href="paper/Indicators_vs._Foundations.pdf" target="_blank">
-                <img src="\images\indicators.png" alt="PDF Thumbnail">
+                <img src="/images/indicators.png" alt="PDF Thumbnail">
             </a>
             <a href="paper/POLI_281.pdf" target="_blank">
-                <img src="\images\281.png" alt="PDF Thumbnail">
+                <img src="/images/281.png" alt="PDF Thumbnail">
             </a>
         </div>
 
         <div class="showing_objects_pres">
-            <a href="presentation\ucsspring.pdf" target="_blank">
-                <img src="\images\springucs.png" alt="PDF Thumbnail">
+            <a href="presentation/ucsspring.pdf" target="_blank">
+                <img src="/images/springucs.png" alt="PDF Thumbnail">
             </a>
 
-            <a href="presentation\ucsfall.pdf" target="_blank">
-                <img src="\images\ucsfall.png" alt="PDF Thumbnail">
+            <a href="presentation/ucsfall.pdf" target="_blank">
+                <img src="/images/ucsfall.png" alt="PDF Thumbnail">
             </a>
         </div>            
     </div>
+
+    <script>
+        // Theme toggle script
+        const themeToggleButton = document.getElementById('theme-toggle');
+
+        function setTheme(theme) {
+            if (theme === 'dark-mode') {
+                document.body.classList.remove('light-mode');
+            } else {
+                document.body.classList.add('light-mode');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        function toggleTheme() {
+            if (document.body.classList.contains('light-mode')) {
+                setTheme('dark-mode');
+            } else {
+                setTheme('light-mode');
+            }
+        }
+
+        themeToggleButton.addEventListener('click', toggleTheme);
+
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark-mode' : 'light-mode');
+        setTheme(savedTheme);
+    </script>
 </body>
 
 </html>

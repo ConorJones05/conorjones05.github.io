@@ -6,13 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conor Jones Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
     <link rel="icon" href="images/icon.png" type="image/png">
+    <style>
+        /* Include the modified CSS directly here for easier testing */
+        .class_container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2x2 grid layout */
+            gap: 20px; /* Space between boxes */
+        }
+
+        .clickable-box div {
+            border: 3px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px;
+            background-color: var(--box-bg-color);
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            font-size: 1.25em;
+            color: var(--text-color);
+            height: 75px; /* Ensure uniform height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
-<body>
+<body class="light-mode"> <!-- Initial mode can change with JS -->
     <div class="container">
-        
+        <!-- Header with profile image and icons -->
         <div class="header-with-icons">
             <div class="circular--portrait">
                 <img src="images/headshot.jpg" alt="Conor Jones" />
@@ -30,27 +54,65 @@
                 </a>
             </div>
         </div>
-        
-        
+
+        <!-- Quote Section -->
         <p class="quote">"Models are opinions embedded in mathematics." - Cathy O'Neil</p>
+        <button id="theme-toggle" class="toggle-btn"><i class="fa-solid fa-moon"></i></button>
 
-        <a href="projects/projects.html" class="clickable-box">
-            <div>Personal Projects</div>
-        </a>
-        
-        <a href="comm/comm.html" class="clickable-box">
-            <div>Communication</div>
-        </a>
-        
-        <a href="classes/class.html" class="clickable-box">
-            <div>Classes</div>
-        </a>
+        <div class="my_classes">
+            <h3>Explore My Work</h3>
+            <div class="class_container">
 
-        <a href="work/work.html" class="clickable-box">
-            <div>Work Experience</div>
-        </a>
+                <!-- Personal Projects Link -->
+                <a href="projects/projects.html" class="clickable-box">
+                    <div>Personal Projects</div>
+                </a>
 
+                <!-- Communication Link -->
+                <a href="comm/comm.html" class="clickable-box">
+                    <div>Communication</div>
+                </a>
+
+                <!-- Classes Link -->
+                <a href="classes/class.html" class="clickable-box">
+                    <div>Classes</div>
+                </a>
+
+                <!-- Work Experience Link -->
+                <a href="work/work.html" class="clickable-box">
+                    <div>Work Experience</div>
+                </a>
+
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Theme toggle script
+        const themeToggleButton = document.getElementById('theme-toggle');
+
+        function setTheme(theme) {
+            if (theme === 'dark-mode') {
+                document.body.classList.remove('light-mode');
+            } else {
+                document.body.classList.add('light-mode');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        function toggleTheme() {
+            if (document.body.classList.contains('light-mode')) {
+                setTheme('dark-mode');
+            } else {
+                setTheme('light-mode');
+            }
+        }
+
+        themeToggleButton.addEventListener('click', toggleTheme);
+
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark-mode' : 'light-mode');
+        setTheme(savedTheme);
+    </script>
 </body>
 
 </html>
