@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conor Jones Portfolio</title>
     <link rel="stylesheet" type="text/css" href="../../stylesheet.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">'
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="/images/icon.png" type="image/png">
 </head>
 
 <body>
     <div class="container">
         <div class="top">
-            <a href="../" class="back-button">Home</a>
-            <h1>Work Experence</h1>
+            <a href="../" class="back-button"><i class="fas fa-home"></i></a>
+            <h1>Work Experience</h1>
+            <!-- Light/Dark Mode Toggle Button -->
+            <button id="theme-toggle" class="toggle-btn"><i class="fa-solid fa-moon"></i></button>
         </div>
-    
+
         <h3>
             Working at UTA, ULA, and the Boys and Girls Club of Cabarrus County has greatly contributed
             to my personal and professional growth. Each experience has taught me valuable lessons in teamwork,
@@ -25,26 +27,20 @@
             my understanding of programming concepts, allowing me to 
             explore and overcome challenges that might otherwise go unnoticed in a formal setting.
         </h3>
+
         <div>
             <div class="work">
                 <div class="work-content">
                     <h2 class="work-title">Boys and Girls Club of Cabarrus County</h2>
                     <div class="work-attributes">
-                        <!-- Pre-made attribute classes -->
                         <span class="attribute_tag"><i class="fa-solid fa-comments"></i> Communication</span>
-                        <!-- Add more attributes as needed -->
                     </div>
-                    <img src="images\boys&girls.png" alt="Job Image" class="work-image">
+                    <img src="../images/boys&girls.png" alt="Job Image" class="work-image">
                 </div>
                 <div class="work-popup">
                     <div class="popup-content">
-                        <div class="popup-title"> Program Assistant / Intern </div>
-                        <div class="popup-date">May 2021 - Present</div>
-                        <div class="popup-body"> In these roles, I created and led the BGC Robotics Program, enrolling over 20 youths. I mentored and advised youth scholars while overseeing and facilitating life skills-building activities. Additionally, I led over 760 children to and from various activities and assisted staff in creating a safe and engaging environment for exploration.
-
-
-
-                        </div>
+                        <div class="popup-title">Program Assistant / Intern</div>
+                        <div class="popup-body"> In these roles, I created and led the BGC Robotics Program, enrolling over 20 youths. I mentored and advised youth scholars while overseeing and facilitating life skills-building activities. Additionally, I led over 760 children to and from various activities and assisted staff in creating a safe and engaging environment for exploration.</div>
                     </div>
                 </div>
             </div>
@@ -52,20 +48,15 @@
                 <div class="work-content">
                     <h2 class="work-title">COMP 110 UTA</h2>
                     <div class="work-attributes">
-                        <!-- Pre-made attribute classes -->
-                        <span class="attribute_tag"><i class="fab fa-python"></i></i> Python</span>
+                        <span class="attribute_tag"><i class="fab fa-python"></i> Python</span>
                         <span class="attribute_tag"><i class="fa-solid fa-comments"></i> Communication</span>
-                        <!-- Add more attributes as needed -->
                     </div>
-                    <img src="images\compsci.png" alt="Job Image" class="work-image">
+                    <img src="../images/compsci.png" alt="Job Image", class="work-image">
                 </div>
                 <div class="work-popup">
                     <div class="popup-content">
-                        <div class="popup-title"> Undergraduate Teaching Assistant</div>
-                        <div class="popup-date">August 2024 - Present</div>
-                        <div class="popup-body"> In this role, I was responsible for a variety of tasks, including attending lectures to administer tests and assist with in-class assignments, holding office hours, 
-                            managing a ticketing system for office hours, and contributing to 
-                            and maintaining a team website.</div>
+                        <div class="popup-title">Undergraduate Teaching Assistant</div>
+                        <div class="popup-body"> In this role, I was responsible for a variety of tasks, including attending lectures to administer tests and assist with in-class assignments, holding office hours, managing a ticketing system for office hours, and contributing to and maintaining a team website.</div>
                     </div>
                 </div>
             </div>
@@ -73,25 +64,53 @@
                 <div class="work-content">
                     <h2 class="work-title">POLI 281 ULA</h2>
                     <div class="work-attributes">
-                        <!-- Pre-made attribute classes -->
-                        <span class="attribute_tag"><i class="fa-brands fa-r-project"></i></i> R</span>
+                        <span class="attribute_tag"><i class="fa-brands fa-r-project"></i> R</span>
                         <span class="attribute_tag"><i class="fa-solid fa-comments"></i> Communication</span>
-                        <!-- Add more attributes as needed -->
                     </div>
-                    <img src="images\polisci.png" alt="Job Image" class="work-image">
+                    <img src="../images/polisci.png" alt="Job Image" class="work-image">
                 </div>
                 <div class="work-popup">
                     <div class="popup-content">
-                        <div class="popup-title"> Undergraduate Learning Assistant </div>
-                        <div class="popup-date">January 2024 - Present</div>
-                        <div class="popup-body"> In this role, I was responsible for assisting undergraduates in learning to code
-                             in R by supporting in-class activities, as well as scheduling and hosting office
-                             hours to provide guidance on assignments and overall clarification of course material.</div>
+                        <div class="popup-title">Undergraduate Learning Assistant</div>
+                        <div class="popup-body"> In this role, I was responsible for assisting undergraduates in learning to code in R by supporting in-class activities, as well as scheduling and hosting office hours to provide guidance on assignments and overall clarification of course material.</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- JavaScript for Light/Dark Mode Toggle -->
+    <script>
+        // Select the theme toggle button
+        const themeToggleButton = document.getElementById('theme-toggle');
+    
+        // Function to set the theme by adding or removing the light-mode class
+        function setTheme(theme) {
+            if (theme === 'dark-mode') {
+                document.body.classList.remove('light-mode'); // Apply dark mode
+            } else {
+                document.body.classList.add('light-mode'); // Apply light mode
+            }
+            localStorage.setItem('theme', theme); // Save the selected theme to local storage
+        }
+    
+        // Function to toggle between light and dark mode
+        function toggleTheme() {
+            // Check current theme
+            if (document.body.classList.contains('light-mode')) {
+                setTheme('dark-mode');
+            } else {
+                setTheme('light-mode');
+            }
+        }
+    
+        // Add an event listener to the button to toggle the theme on click
+        themeToggleButton.addEventListener('click', toggleTheme);
+    
+        // Load the theme from local storage or default to system preference
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark-mode' : 'light-mode');
+        setTheme(savedTheme); // Apply the saved or preferred theme on page load
+    </script>
 </body>
 
 </html>
