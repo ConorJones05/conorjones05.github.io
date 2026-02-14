@@ -1,118 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conor Jones Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <title>Conor Jones</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/icon.png" type="image/png">
-    <style>
-        /* Include the modified CSS directly here for easier testing */
-        .class_container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2x2 grid layout */
-            gap: 20px; /* Space between boxes */
-        }
-
-        .clickable-box div {
-            border: 3px solid var(--border-color);
-            border-radius: 12px;
-            padding: 10px;
-            background-color: var(--box-bg-color);
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            font-size: 1.25em;
-            color: var(--text-color);
-            height: 75px; /* Ensure uniform height */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+<body>
 
-<body class="light-mode"> <!-- Initial mode can change with JS -->
-    <div class="container">
-        <!-- Header with profile image and icons -->
-        <div class="header-with-icons">
-            <div class="circular--portrait">
-                <img src="images/headshot.jpg" alt="Conor Jones" />
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">CJ</a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#uta" class="nav-link">UTA</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#leadership" class="nav-link">Leadership</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-            <h1>Conor Jones Portfolio</h1>
-            <div class="icons">
-                <a href="https://www.linkedin.com/in/conor-jones05" target="_blank" class="linkedin-icon">
-                    <i class="fab fa-linkedin"></i>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Intro -->
+    <header id="home" class="hero">
+        <div class="container hero-content">
+            <img src="images/headshot.jpg" alt="Conor Jones" class="hero-image">
+            <div class="hero-text">
+                <h1>Conor Jones</h1>
+                <p class="subtitle">Undergraduate Researcher &mdash; AI in Education &amp; HCI</p>
+                <p class="bio">
+                    I'm studying Statistics &amp; Analytics and Computer Science at UNC Chapel Hill.
+                    My research sits at the intersection of AI and education&mdash;building tools that help
+                    instructors understand how students learn, and studying how humans interact with
+                    AI-generated feedback.
+                </p>
+                <div class="hero-links">
+                    <a href="mailto:conjon@unc.edu">conjon@unc.edu</a>
+                    <a href="https://github.com/ConorJones05" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/conor-jones05" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="Conor Jones Resume (2024).docx (3).pdf" target="_blank">CV</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2>About</h2>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I transferred to UNC Chapel Hill from Rowan-Cabarrus Community College in 2023. Since
+                        then I've worked in three research labs spanning education technology and cognitive
+                        neuroscience, and I've been a UTA for four different courses. Outside of school I
+                        spent three and a half years running a robotics program at the Boys &amp; Girls Club of
+                        Cabarrus County.
+                    </p>
+                    <p>
+                        I'm interested in how we can use data to give instructors better insight into student
+                        learning, and how students interact with AI tools in educational settings. I care about
+                        doing this work ethically&mdash;my current projects involve IRB-approved protocols and
+                        FERPA-compliant data handling.
+                    </p>
+
+                    <h3>Research Interests</h3>
+                    <ul class="interests">
+                        <li>Human-Computer Interaction</li>
+                        <li>AI in Education</li>
+                        <li>Learning Analytics</li>
+                        <li>Human-AI Interaction</li>
+                        <li>Educational Technology</li>
+                    </ul>
+                </div>
+
+                <div class="about-sidebar">
+                    <div class="card">
+                        <h3>Education</h3>
+                        <div class="edu-item">
+                            <strong>University of North Carolina at Chapel Hill</strong>
+                            <span>B.S. Statistics and Analytics</span>
+                            <span>B.S. Computer Science</span>
+                            <span>Minor in Information Systems</span>
+                            <span class="muted">Expected May 2027</span>
+                        </div>
+                        <div class="edu-item">
+                            <strong>Rowan-Cabarrus Community College</strong>
+                            <span>A.A. Liberal Arts</span>
+                            <span class="muted">May 2023</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Skills</h3>
+                        <div class="skill-group">
+                            <h4>Research Methods</h4>
+                            <div class="tags">
+                                <span>User Studies</span>
+                                <span>Survey Design</span>
+                                <span>Experimental Design</span>
+                                <span>IRB Protocols</span>
+                            </div>
+                        </div>
+                        <div class="skill-group">
+                            <h4>Data &amp; Analysis</h4>
+                            <div class="tags">
+                                <span>Python</span>
+                                <span>FastAPI</span>
+                                <span>Pandas</span>
+                                <span>R</span>
+                                <span>SQL</span>
+                                <span>FSL</span>
+                                <span>MATLAB</span>
+                            </div>
+                        </div>
+                        <div class="skill-group">
+                            <h4>Development</h4>
+                            <div class="tags">
+                                <span>Git/GitHub</span>
+                                <span>Linux</span>
+                                <span>NextJS</span>
+                                <span>TypeScript</span>
+                                <span>Java</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="alt-bg">
+        <div class="container">
+            <h2>Research Experience</h2>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <h3>AI &amp; Education / Human&ndash;AI Interaction Researcher</h3>
+                        <p class="entry-org">UNC Chapel Hill</p>
+                    </div>
+                    <span class="entry-date">Aug 2025 &ndash; Present</span>
+                </div>
+                <ul>
+                    <li>Deployed a pilot study with 45+ students that received an 8/10 average &ldquo;usefulness&rdquo; rating with zero generation errors</li>
+                    <li>Released an open-source PyPI package for automated Gradescope data collection, with multithreading and FERPA-compliant encrypted storage</li>
+                    <li>Building analytics dashboards (scroll depth, lag time, clickstream) for deployment in COMP 110 (700+ students) and COMP 301 (300+ students)</li>
+                    <li>Preparing manuscripts on learning analytics and a &ldquo;Comment Proxy&rdquo; code-commenting study</li>
+                </ul>
+                <div class="tags">
+                    <span>Python</span><span>FastAPI</span><span>NextJS</span><span>SQL</span><span>IRB Protocol</span>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <h3>Research Assistant</h3>
+                        <p class="entry-org">Carolina Institute for Neurocognition &amp; Imaging</p>
+                    </div>
+                    <span class="entry-date">Oct 2024 &ndash; Aug 2025</span>
+                </div>
+                <ul>
+                    <li>Processed 20GB+ of fMRI data to model Default Mode and Dorsal Attention Networks using Python, FSL, and MATLAB</li>
+                    <li>Designed a low-cost, open-source eye-tracking system using a GoPro and IR light</li>
+                    <li>Presented the eye-tracking project to Boston University&rsquo;s Neurostimulation Lab</li>
+                    <li>Built reproducible preprocessing workflows that were adopted across multiple lab projects</li>
+                </ul>
+                <div class="tags">
+                    <span>Python</span><span>FSL</span><span>MATLAB</span><span>fMRI</span>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <h3>Research Assistant</h3>
+                        <p class="entry-org">Carolina Institute for Neurostimulation</p>
+                    </div>
+                    <span class="entry-date">Aug &ndash; Oct 2024</span>
+                </div>
+                <ul>
+                    <li>Developed behavioral tracking tools that log accuracy and reaction time</li>
+                    <li>Deployed these tools in the Belgar Lab for integration with network-level analyses</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- UTA Experience -->
+    <section id="uta">
+        <div class="container">
+            <h2>UTA Experience</h2>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <h3>Undergraduate Teaching Assistant</h3>
+                        <p class="entry-org">UNC Chapel Hill, Department of Computer Science</p>
+                    </div>
+                    <span class="entry-date">Spring 2024 &ndash; Present</span>
+                </div>
+
+                <div class="uta-role">
+                    <h4>Lead UTA &mdash; COMP 301 (Foundations of Programming)</h4>
+                    <ul>
+                        <li>Coordinated the materials team, redesigned assignments, and piloted face-to-face check-ins to address AI-driven plagiarism</li>
+                    </ul>
+                </div>
+
+                <div class="uta-role">
+                    <h4>UTA &mdash; COMP 110, COMP 283, POLI 281</h4>
+                    <ul>
+                        <li>Held office hours, helped students debug code, administered tests, assisted with in-class assignments, and ran review sessions</li>
+                    </ul>
+                </div>
+
+                <div class="uta-role">
+                    <h4>Hack110</h4>
+                    <ul>
+                        <li>Developed and led a beginner hackathon; authored tutorials on Git/GitHub, version control, collaborative coding, ML, and PyGame used by 100+ students</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects & Writing -->
+    <section id="projects" class="alt-bg">
+        <div class="container">
+            <h2>Projects &amp; Writing</h2>
+
+            <div class="project-grid">
+                <a href="projects/projects.html" class="project-card">
+                    <h3>Coding Projects &rarr;</h3>
+                    <p>Personal side projects&mdash;Google Calendar importer, web scraper, Battleship AI, and more.</p>
                 </a>
-                <a href="https://github.com/ConorJones05" target="_blank" class="github-icon">
-                    <i class="fab fa-github"></i>
+                <a href="https://github.com/ConorJones05" target="_blank" rel="noopener" class="project-card">
+                    <h3>Gradescope PyPI Package &rarr;</h3>
+                    <p>Open-source tool for automated Gradescope data collection with multithreading and encrypted storage.</p>
                 </a>
-                <a href="Conor Jones Resume (2024).docx (3).pdf" target="_blank" class="resume-icon">
-                    <i class="fas fa-file-alt"></i>
+                <a href="comm/comm.html" class="project-card">
+                    <h3>Papers &amp; Presentations &rarr;</h3>
+                    <p>Academic writing and presentation decks from coursework and career competitions.</p>
+                </a>
+                <a href="classes/class.html" class="project-card">
+                    <h3>Coursework &rarr;</h3>
+                    <p>Overview of relevant courses in CS, statistics, math, and political science.</p>
                 </a>
             </div>
         </div>
+    </section>
 
-        <!-- Quote Section -->
-        <p class="quote">"Models are opinions embedded in mathematics." - Cathy O'Neil</p>
-        <button id="theme-toggle" class="toggle-btn"><i class="fa-solid fa-moon"></i></button>
+    <!-- Leadership -->
+    <section id="leadership">
+        <div class="container">
+            <h2>Leadership &amp; Service</h2>
 
-        <div class="my_classes">
-            <h3>Explore My Work</h3>
-            <div class="class_container">
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <h3>Member &mdash; UNC Student Technology Council</h3>
+                        <p class="entry-org">Chapel Hill, NC</p>
+                    </div>
+                    <span class="entry-date">Aug 2024 &ndash; Present</span>
+                </div>
+                <p>Advise campus IT and academic units on student technology use and policy, including recommendations on AI in classrooms.</p>
+            </div>
 
-                <!-- Personal Projects Link -->
-                <a href="projects/projects.html" class="clickable-box">
-                    <div>Personal Projects</div>
-                </a>
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <h3>Resident Advisor</h3>
+                        <p class="entry-org">Carolina Housing, Chapel Hill, NC</p>
+                    </div>
+                    <span class="entry-date">Jan 2024 &ndash; May 2025</span>
+                </div>
+                <p>Mentored 30+ residents with a focus on academic support and community building.</p>
+            </div>
 
-                <!-- Communication Link -->
-                <a href="comm/comm.html" class="clickable-box">
-                    <div>Communication</div>
-                </a>
-
-                <!-- Classes Link -->
-                <a href="classes/class.html" class="clickable-box">
-                    <div>Classes</div>
-                </a>
-
-                <!-- Work Experience Link -->
-                <a href="work/work.html" class="clickable-box">
-                    <div>Work Experience</div>
-                </a>
-
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <h3>Program Assistant &mdash; Boys &amp; Girls Club of Cabarrus County</h3>
+                        <p class="entry-org">Concord, NC</p>
+                    </div>
+                    <span class="entry-date">Jul 2021 &ndash; Feb 2025</span>
+                </div>
+                <p>Founded and ran a robotics/coding program, leading weekly workshops for 20+ students.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        // Theme toggle script
-        const themeToggleButton = document.getElementById('theme-toggle');
+    <!-- Contact -->
+    <section id="contact" class="alt-bg">
+        <div class="container contact-section">
+            <h2>Contact</h2>
+            <p>
+                I'm also happy to chat about research collaborations or anything!
+            </p>
+            <div class="contact-links">
+                <a href="mailto:conjon@unc.edu"><i class="fas fa-envelope"></i> conjon@unc.edu</a>
+                <a href="https://github.com/ConorJones05" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/conor-jones05" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </section>
 
-        function setTheme(theme) {
-            if (theme === 'dark-mode') {
-                document.body.classList.remove('light-mode');
-            } else {
-                document.body.classList.add('light-mode');
-            }
-            localStorage.setItem('theme', theme);
-        }
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Conor Jones</p>
+        </div>
+    </footer>
 
-        function toggleTheme() {
-            if (document.body.classList.contains('light-mode')) {
-                setTheme('dark-mode');
-            } else {
-                setTheme('light-mode');
-            }
-        }
-
-        themeToggleButton.addEventListener('click', toggleTheme);
-
-        const savedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark-mode' : 'light-mode');
-        setTheme(savedTheme);
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
