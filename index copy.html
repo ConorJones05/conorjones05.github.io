@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>MOOC's whats the Story?</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<style>
+			html, body {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				color: #222;
+				background: #fff;
+				margin: 20px;
+			}
+			main {
+				max-width: 1000px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			h2 { margin: 8px 0; }
+			.controls {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				padding: 10px;
+				border: 1px solid #e6e6e6;
+				border-radius: 6px;
+				background: #fafafa;
+			}
+			.checkbox-group label {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 14px;
+			}
+			.checkbox-swatch { width: 12px; height: 12px; border-radius: 50%; display:inline-block }
+			.layout {
+				display: grid;
+				grid-template-columns: 1fr 320px;
+				gap: 16px;
+				align-items: start;
+			}
+			@media (max-width: 900px) {
+				.layout { grid-template-columns: 1fr; }
+			}
+			#visContainer, #barContainer {
+				border: 1px solid #eee;
+				padding: 12px;
+				background: #fff;
+				border-radius: 6px;
+				min-height: 220px;
+			}
+			.narrative-section {
+				min-height: 45vh;
+				padding: 40px 20px;
+				text-align: center;
+				opacity: 0;
+				transform: translateY(12px);
+				transition: all 0.45s ease;
+			}
+			.narrative-section.visible { opacity: 1; transform: translateY(0); }
+			.scrolly-section { opacity: 0.7; transition: opacity 0.35s ease; }
+			.scrolly-section.active { opacity: 1; }
+			.details { border: 1px solid #eee; padding: 12px; border-radius: 6px; background: #fff }
+			.badge { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #dbe9ff; color: #1f3f91; font-size: 0.85rem }
+			.scroll-progress { position: fixed; top: 0; left: 0; height: 4px; background: #5b8def; width: 0; z-index: 999 }
+			.section-nav { position: fixed; right: 12px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px }
+			.section-dot { width: 12px; height: 12px; border-radius: 50%; background: #ddd; border: 2px solid #ddd }
+			.section-dot.active { background: #5b8def; border-color: #1f3f91; transform: scale(1.15) }
+			.insight-box { border-left: 4px solid #5b8def; padding: 12px; background: #f8fbff; border-radius: 4px }
+		</style>
+	</head>
+	<body>
+		<div class="scroll-progress" id="scrollProgress"></div>
+
+		<nav class="section-nav" id="sectionNav" aria-label="Section navigation"></nav>
+
+		<main class="scrolly-container">
+
+			<section class="narrative-section" data-section="intro">
+				<div class="narrative-content">
+					<h2>The Promise of the MOOC Revolution</h2>
+					<p>
+						In the early 2010s, a bold promise swept through education: world-class courses from 
+						<span class="highlight">MIT, Harvard, and Stanford</span> free, online, and open to anyone. 
+						Platforms like Coursera and edX pledged to democratise learning, letting a student in rural 
+						Kenya access the same material as one in Cambridge.
+					</p>
+					<p>
+						But behind the headlines of millions of enrolments, what does the data actually tell us? 
+						Did MOOCs deliver on their revolutionary promise, or did old inequalities simply follow 
+						learners online?
+					</p>
+					<div class="scroll-hint">
+						<p>Scroll to explore :)</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="narrative-section" data-section="scatter-intro">
+				<div class="narrative-content">
+					<h2>What Are People Actually Learning?</h2>
+					<p>
+						Across thousands of courses, a clear hierarchy emerges. 
+						<span class="highlight">Computer Science dominates</span> in sheer volume — 
+						unsurprisingly, given the tech industry's appetite for self-taught talent. 
+						Business, Data Science, and Health & Medicine follow, each catering to 
+						professionals looking to upskill without returning to campus.
+					</p>
+					<p>
+						Each bubble below represents a major subject category. 
+						<span class="highlight">Bubble size</span> reflects the number of courses available, 
+						while its <span class="highlight">horizontal position</span> encodes average course 
+						duration and <span class="highlight">vertical position</span> encodes average learner 
+						rating. Notice that the biggest categories aren't always the most highly rated, 
+						popularity and quality don't always go hand in hand.
+					</p>
+					<div class="insight-box">
+						<strong>Try it:</strong> Click any category bubble to drill into its sub-genres, 
+						each plotted at their own duration and rating coordinates. Then click a 
+						sub-genre to see how enrolment has grown year-on-year.
+					</div>
+				</div>
+			</section>
+
+			<section class="layout scrolly-section" id="vis-double-section" data-section="double">
+				<section id="timeseries_viz" aria-label="Time Series Panel" style="min-width:400px; min-height:350px;"></section>
+				<section style="flex:1; display:flex; flex-direction:column; align-items:center;">
+					<h2 id="panel_title" style="margin-bottom:10px;">Course Trends</h2>
+					<div id="scatter_viz" aria-label="Scatter Plot Panel" style="min-width:650px; min-height:500px;"></div>
+				</section>
+			</section>
+
+			<section class="narrative-section" data-section="mooc-intro">
+				<div class="narrative-content">
+					<h2>Sign-Up Is the Easy Part</h2>
+					<p>
+						Now let's zoom into <span class="highlight">Harvard and MIT MOOC data</span> specifically. Every year, hundreds of thousands 
+						of learners enrol, drawn by the prospect of an Ivy League education at no cost.
+					</p>
+					<p>
+						But enrolment is just a click. The harder question is: 
+						<span class="highlight">who actually stays?</span> Does the MOOC revolution serve 
+						the ambitious high-school graduate, or does it mostly benefit learners who are 
+						already highly educated, people who arguably needed it least?
+					</p>
+				</div>
+			</section>
+
+			<!-- Narrative before pipeline visualization -->
+			<section class="narrative-section" data-section="pipeline-intro">
+				<div class="narrative-content">
+					<h2>The Leaky Funnel</h2>
+					<p>
+						Visualising learner journeys as a funnel reveals a brutal truth. 
+						The <span class="highlight">widest point is day zero</span>, the moment someone 
+						clicks "Enrol". From there, the funnel narrows with alarming speed. 
+						Many learners never watch a single lecture. A large portion disengage 
+						within the first week.
+					</p>
+					<p>
+						This isn't unique to Harvard or MIT — it's a near-universal pattern 
+						across online learning. But the shape of the funnel changes 
+						<span class="highlight">depending on who you are</span>. Use the filters 
+						below to explore how education background and gender affect how far 
+						learners make it through the course.
+					</p>
+					<div class="insight-box">
+						<strong>Key insight:</strong> The steepest drop-offs occur within the 
+						first few days of enrolment. Learners who remain active beyond day 10 
+						are far more likely to complete the course entirely.
+					</div>
+				</div>
+			</section>
+
+
+
+			<section class="controls" aria-label="Filters">
+				<fieldset class="dimension-toggle">
+					<legend>Highlight pipelines by</legend>
+					<div class="dimension-toggle-options">
+						<label>
+							<input type="radio" name="highlightBy" value="gender" checked />
+							Gender
+						</label>
+						<label>
+							<input type="radio" name="highlightBy" value="education" />
+							Education level
+						</label>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend>Show groups</legend>
+					<div id="checkboxContainer" class="checkbox-group"></div>
+				</fieldset>
+			</section>
+
+			<section class="layout scrolly-section" id="vis-pipeline-section" data-section="pipeline">
+				<section id="visContainer" aria-label="Engagement pipelines">
+					<svg id="pipelineSvg"></svg>
+				</section>
+
+				<aside class="details" aria-label="Slice details">
+					<h2>Slice details</h2>
+					<p class="hint" id="detailsHint">
+						Hover over a coloured pipeline to slice by days active.
+					</p>
+					<div id="detailsContent"></div>
+				</aside>
+			</section>
+
+			<section class="narrative-section" data-section="conclusion">
+				<div class="narrative-content">
+					<h2>A Revolution... But for Whom?</h2>
+					<p>
+						The data tells a nuanced story. MOOCs have undeniably democratised 
+						<span class="highlight">access</span> to elite education, but access alone 
+						isn't enough. The steepest drop-offs consistently hit learners with 
+						<span class="highlight">no post-secondary education</span>, the very group 
+						the revolution promised to lift. Those already holding degrees engage 
+						longer and complete at higher rates.
+					</p>
+					<p>
+						Gender, however, paints a more encouraging picture. 
+						<span class="highlight">Women who enrol persist at similar rates to men.</span> 
+						The gap isn't in completion, it's in who feels invited to sign up in the 
+						first place, particularly in technical subjects.
+					</p>
+					<p>
+						The MOOC revolution widened the door. But sustaining engagement for 
+						first-generation learners, those with the most to gain, 
+						remains the unsolved challenge of online education.
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<script src="js/pipelineVis.js"></script>
+		<script src="js/scrolly.js"></script>
+	<script src="js/double.js"></script>
+
+		<footer style="max-width:1000px;margin:24px auto 40px; font-size:0.9rem;color:#444;">
+			<hr style="border:none;border-top:1px solid #eee;margin:12px 0 16px;"/>
+			<p><strong>Authorship &amp; Data Attribution</strong></p>
+			<ul>
+				<li><strong>Author:</strong> Conor Jones</li>
+				<li><strong>Data sources:</strong> <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/26147" target="_blank" rel="noopener">Harvard Dataverse</a> and <a href="https://www.kaggle.com/datasets/ankushbisht005/udemy-courses-data-2023" target="_blank" rel="noopener">Kaggle — Udemy Courses Data (2023)</a></li>
+				<li><strong>Original article:</strong> <a href="https://www.nytimes.com/2012/11/04/education/edlife/massive-open-online-courses-are-multiplying-at-a-rapid-pace.html" target="_blank" rel="noopener">"Massive Open Online Courses Are Multiplying at a Rapid Pace" — The New York Times</a></li>
+			</ul>
+		</footer>
+	</body>
+</html>
+
